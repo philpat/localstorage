@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .container{
+    width: 600px;
+    margin: auto;
+    background-color: aquamarine;
+    padding: 10px;
+    text-align: center;
+  }
+  input{
+    padding: 10px 10px;
+    width: 80%;
+    margin: 10px auto;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+  }
+  button{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <form action="" id="form">
+      <h1>Login</h1>
+      
+      <input type="email" name="email" id="email" placeholder="Email">
+      <input type="password" name="password" id="password" placeholder="Password"><br>
+      <button type="submit" id="btn">Login</button>
+    </form>
+    <p>Don't have an account?</p><span><a href="signup.html" class="">Sign up here</a></span>
+  </div>
+
+  <script>
+    let email = document.querySelector("#email");
+    let password = document.querySelector("#password");
+    let form = document.querySelector("#form");
+
+    function login() {
+      let users = JSON.parse(localStorage.getItem("userDetail")) || [];
+      let user = users.find((u) => u.email === email.value && u.password === password.value);
+
+      if (user) {
+        alert("Login successful!");
+      } else {
+        alert("Invalid email or password.");
+      }
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      login();
+    });
+  </script>
+</body>
+</html>
