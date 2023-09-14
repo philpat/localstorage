@@ -56,16 +56,16 @@
     let confirmPassword = document.querySelector("#cpassword")
     let form = document.querySelector("#form")
 
-    let user = {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      email: email.value,
-      phone: phone.value,
-      password: password.value,
-      confirmpassword: cpassword.value,
-    }
-
+    
     function validateForm(){
+      let user = {
+        firstName: firstName.value,
+        lastName: lastName.value,
+        email: email.value,
+        phone: phone.value,
+        password: password.value,
+        confirmpassword: cpassword.value,
+      }
       if(confirmPassword.value !== password.value){
        let errorMessage = document.createElement('p')
        errorMessage.innerHTML = "Password does not match"
